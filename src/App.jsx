@@ -3,7 +3,7 @@ function App() {
 
   return (
     <>
-    <h1>Netflix</h1>
+    <h1 className="m-3 p-2 border">Netflix</h1>
     </>
   )
 }
