@@ -23,7 +23,7 @@ const Login = () => {
                    {isSignUp ? ' Sign In' : ' Sign up now.'} 
                 </span> 
             </p>
-        </form>false
+        </form>
       </div>
       </div>
       
