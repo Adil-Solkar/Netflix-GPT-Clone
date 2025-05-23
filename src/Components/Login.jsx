@@ -1,40 +1,76 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Header from "./Header";
+import {validateFormData} from '../utils/validate'
 
 const Login = () => {
-    const [isSignUp,setIsSignUp] = useState(false)
-    function handleSignUpClick(){
-        setIsSignUp(prevState => !prevState)
-    }
+  const [isSignUp, setIsSignUp] = useState(false);
+  const [errorMessage,setErrorMessage] = useState(null)
+
+  const fullName = useRef(null);
+  const email = useRef(null);
+  const password = useRef(null);
+
+  function handleSignUpClick() {
+    setIsSignUp((prevState) => !prevState);
+  }
+
+  function handleButtonClick(e){
+    e.preventDefault()
+    const errorMessage = validateFormData(fullName?.current?.value,email?.current?.value,password?.current?.value,isSignUp)
+    // console.log(errorMessage)
+    setErrorMessage(errorMessage)
+  }
 
   return (
     <>
       <Header />
       <div className="flex justify-center">
         <div className="border bg-black opacity-90 m-5 min-w-lg">
-        <form className="flex flex-col p-12">
-            <h2 className="text-2xl text-white font-bold mb-8">{isSignUp ? 'Sign up' :'Sign In'}</h2>
-            {isSignUp && <input type="text" placeholder="Full Name" className="mb-5 p-3 border border-white text-white "/>}
-            <input type="text" placeholder="Email Address" className="mb-5 p-3 border border-white text-white "/>
-            <input type="password" placeholder="Password" className="mb-5 p-3 border border-white text-white "/>
-            <button className="bg-red-600 p-3 text-white rounded-md mb-5">{isSignUp ? 'Sign up' :'Sign In'}</button>
-            <p className="text-white">{isSignUp ? 'Already a user?' : 'New to Netflix?' }
-                 <span className="cursor-pointer hover:text-amber-100" onClick={handleSignUpClick}> 
-                   {isSignUp ? ' Sign In' : ' Sign up now.'} 
-                </span> 
+          <form className="flex flex-col p-12">
+            <h2 className="text-2xl text-white font-bold mb-8">
+              {isSignUp ? "Sign up" : "Sign In"}
+            </h2>
+            {isSignUp && (
+              <input
+                ref={fullName}
+                type="text"
+                placeholder="Full Name"
+                className="mb-5 p-3 border border-white text-white "
+              />
+            )}
+            <input
+              ref={email}
+              type="text"
+              placeholder="Email Address"
+              className="mb-5 p-3 border border-white text-white "
+            />
+            <input
+              ref={password}
+              type="password"
+              placeholder="Password"
+              className="mb-5 p-3 border border-white text-white "
+            />
+            {errorMessage && <p className="text-red-500 text-lg font-bold tracking-wide mb-5">{errorMessage}</p>}
+            <button onClick={handleButtonClick} className="bg-red-600 p-3 text-white rounded-md mb-5">
+              {isSignUp ? "Sign up" : "Sign In"}
+            </button>
+            <p className="text-white">
+              {isSignUp ? "Already a user?" : "New to Netflix?"}
+              <span
+                className="cursor-pointer hover:text-amber-100"
+                onClick={handleSignUpClick}
+              >
+                {isSignUp ? " Sign In" : " Sign up now."}
+              </span>
             </p>
-        </form>
+          </form>
+        </div>
       </div>
-      </div>
-      
-
-
     </>
   );
 };
 
 export default Login;
-
 
 /* bg-image <div>
         <img
