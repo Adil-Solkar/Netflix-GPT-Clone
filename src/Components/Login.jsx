@@ -2,18 +2,16 @@ import { useRef, useState } from "react";
 import Header from "./Header";
 import { validateFormData } from "../utils/validate";
 import { auth } from "../utils/firebaseConfig";
-import {
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-} from "firebase/auth";
+import { useNavigate } from "react-router";
+import { createUserWithEmailAndPassword,signInWithEmailAndPassword } from "firebase/auth";
 
 const Login = () => {
   const [isSignUp, setIsSignUp] = useState(false);
   const [errorMessage,setErrorMessage] = useState(null);
-
   const fullName = useRef(null);
   const email = useRef(null);
   const password = useRef(null);
+  const navigate = useNavigate();
 
   function handleSignUpClick() {
     setIsSignUp((prevState) => !prevState);
@@ -43,15 +41,13 @@ const Login = () => {
           .then((userCredential) => {
             const user = userCredential.user;
             console.log(user);
+            navigate("/browse")
           })
           .catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
             setErrorMessage(errorCode + " " + ": " + errorMessage);
           });
-        //  fullName.current.value = ""
-        //  email.current.value = ""
-        //  password.current.value = ""
       } else {
         // Sign in logic
         signInWithEmailAndPassword(
@@ -62,6 +58,7 @@ const Login = () => {
           .then((userCredential) => {
             const user = userCredential.user;
             console.log(user);
+            navigate("/browse")
           })
           .catch((error) => {
             const errorCode = error.code;
