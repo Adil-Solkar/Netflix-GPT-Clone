@@ -2,7 +2,6 @@ import { useRef, useState } from "react";
 import Header from "./Header";
 import { validateFormData } from "../utils/validate";
 import { auth } from "../utils/firebaseConfig";
-import { useNavigate } from "react-router";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -17,7 +16,6 @@ const Login = () => {
   const fullName = useRef(null);
   const email = useRef(null);
   const password = useRef(null);
-  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   function handleSignUpClick() {
@@ -59,7 +57,6 @@ const Login = () => {
                     email: email, 
                     displayName: displayName,
                   }))
-                navigate("/browse");
               })
               .catch((error) => {
                 // An error occurred
@@ -81,7 +78,6 @@ const Login = () => {
           password?.current?.value
         )
           .then(() => {
-            navigate("/browse");
           })
           .catch((error) => {
             const errorCode = error.code;
