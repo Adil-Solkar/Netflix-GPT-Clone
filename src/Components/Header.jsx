@@ -38,7 +38,7 @@ const Header = () => {
 
     // Unsiubscribe when component unmounts
     return () => unsubscribe();
-  }, []);
+  }, [dispatch, navigate]);
 
 
   return (
@@ -47,7 +47,7 @@ const Header = () => {
         <img
           src={logo}
           alt="Logo"
-          className="px-5 py-2 block w-44"
+          className="px-4 py-2 block w-44"
         />
       </div>
       {user && <h3 className=" whitespace-nowrap text-xl text-white">Welcome {user.displayName}</h3>}
