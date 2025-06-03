@@ -6,7 +6,7 @@ const MainContainer = () => {
     const movies = useSelector(store => store.movies?.nowPlayingMovies)
 
     if(!movies) return // early return
-    const bannerMovie = movies[0]
+    const bannerMovie = movies[0] // write logic for a random movie at every reload --> 
 
     const {original_title,overview,id} = bannerMovie 
  
