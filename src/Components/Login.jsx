@@ -92,7 +92,7 @@ const Login = () => {
     <>
       <div className="bg-gray-800 min-h-screen">
         <Header />
-        <div className="flex justify-center mt-10">
+        <div className="flex justify-center items-center min-h-screen">
           <div className="border bg-black opacity-90 m-5 min-w-lg">
             <form className="flex flex-col p-12">
               <h2 className="text-2xl text-white font-bold mb-8">

@@ -8,7 +8,7 @@ const Browse = () => {
   
   return (
     <>
-      <div className="bg-gray-800 min-h-screen">
+      <div className="bg-black">
         <Header />
         <MainContainer />
         <SecondaryContainer />

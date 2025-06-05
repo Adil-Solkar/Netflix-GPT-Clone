@@ -42,7 +42,7 @@ const Header = () => {
 
 
   return (
-    <div className="flex items-center">
+    <nav className="flex items-center absolute top-0 left-0 w-full z-50">
       <div className="w-screen">
         <img
           src={logo}
@@ -56,7 +56,7 @@ const Header = () => {
       >
         Sign Out
       </button>}
-    </div>
+    </nav>
   );
 };
 
