@@ -4,7 +4,7 @@ const MovieList = ({ title, movies }) => {
   return (
     <>
       <div className="pl-8">
-        {movies && <h2 className="text-white font-bold text-2xl py-5">{title}</h2>}
+        {movies && movies.length ?<h2 className="text-white font-bold text-2xl py-5">{title}</h2>: null}
         <div className="flex gap-4 overflow-x-scroll">
           {movies && movies.length
             ? movies.map((movie) => (

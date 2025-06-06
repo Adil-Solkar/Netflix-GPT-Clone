@@ -1,9 +1,9 @@
 const VideoTitle = ({ title, summary }) => {
   return (
     <div className="w-screen aspect-video inset-0 overflow-auto px-16  absolute text-white bg-gradient-to-r from-black ">
-      <div className="mt-40">
+      <div className="w-1/3 mt-50">
         <h1 className="text-4xl font-bold ">{title}</h1>
-      <h3 className="text-lg mt-4 mb-4 tracking-wider w-1/2">{summary}</h3> 
+      <h3 className="text-lg mt-4 mb-4 tracking-wider ">{summary}</h3> 
       <div>
         <button className="bg-white text-black font-semibold px-5 py-2 rounded hover:bg-gray-200 transition">
           ▶ Play

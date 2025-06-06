@@ -42,7 +42,7 @@ const Header = () => {
 
 
   return (
-    <nav className="flex items-center absolute top-0 left-0 w-full z-50">
+    <nav className="flex items-center absolute top-0 left-0 w-full z-50 bg-black">
       <div className="w-screen">
         <img
           src={logo}
